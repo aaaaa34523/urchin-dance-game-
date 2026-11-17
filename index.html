@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#087e91">
+<title>海之歌·海胆舞王</title>
+<style>
+:root{--deep:#07546c;--sea:#087e91;--mint:#a8e8c4;--yellow:#ffe27a;--coral:#ff8d79}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#fff;min-height:100svh;background:linear-gradient(180deg,#63d5d2 0%,#168da4 48%,#07546c 100%);overflow:hidden}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 15% 22%,#ffffff55 0 3px,transparent 4px),radial-gradient(circle at 82% 18%,#ffffff44 0 5px,transparent 6px),radial-gradient(circle at 70% 72%,#ffffff33 0 4px,transparent 5px);background-size:130px 150px,190px 210px,160px 170px;pointer-events:none}
+.wrap{position:relative;max-width:520px;margin:auto;min-height:100svh;padding:22px 18px 24px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.brand{font-size:13px;letter-spacing:5px;font-weight:800;opacity:.9;margin-top:5px}
+h1{font-size:clamp(29px,8vw,40px);margin:8px 0 2px;text-shadow:0 3px 0 #07546c55}
+.sub{font-size:14px;opacity:.9;margin:0}
+.stage{position:relative;width:100%;height:300px;display:flex;align-items:center;justify-content:center;margin:4px 0 0}
+.bubble{position:absolute;border:2px solid #ffffff55;border-radius:50%;animation:float 4s ease-in-out infinite}
+.b1{width:30px;height:30px;left:12%;top:28%}.b2{width:17px;height:17px;right:15%;top:18%;animation-delay:-2s}.b3{width:22px;height:22px;right:22%;bottom:15%;animation-delay:-1s}
+@keyframes float{50%{transform:translateY(-17px)}}
+.urchin{position:relative;width:190px;height:190px;filter:drop-shadow(0 14px 8px #003d4c44);transition:transform .15s}
+.spikes{position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(from 0deg,#a4d85d 0deg 7deg,transparent 7deg 15deg);clip-path:polygon(50% 0%,57% 13%,70% 3%,73% 18%,89% 12%,86% 29%,100% 39%,87% 49%,98% 64%,81% 69%,85% 87%,68% 83%,57% 100%,47% 85%,31% 98%,29% 81%,11% 86%,17% 68%,0 57%,14% 46%,2% 31%,20% 28%,15% 10%,34% 17%)}
+.body{position:absolute;inset:23px;border-radius:50%;background:radial-gradient(circle at 35% 28%,#c9f28a,#7fbd39 65%,#57942c);border:5px solid #5b9d32}
+.eye{position:absolute;width:12px;height:17px;background:#173b36;border-radius:50%;top:67px}.eye.left{left:63px}.eye.right{right:63px}
+.cheek{position:absolute;width:23px;height:11px;border-radius:50%;background:#ff9b91;top:91px;opacity:.85}.cheek.left{left:42px}.cheek.right{right:42px}
+.mouth{position:absolute;width:25px;height:13px;border-bottom:4px solid #234b37;border-radius:0 0 50% 50%;left:50%;top:91px;transform:translateX(-50%)}
+.urchin.dance{animation:dance .42s ease-in-out infinite alternate}
+.urchin.dance .body{animation:tilt .42s ease-in-out infinite alternate}
+@keyframes dance{from{transform:rotate(-12deg) translateY(0)}to{transform:rotate(12deg) translateY(-12px)}}
+@keyframes tilt{to{transform:scale(1.04)}}
+.panel{width:100%;max-width:390px;background:#ffffff20;border:1px solid #ffffff55;border-radius:22px;padding:14px 16px;backdrop-filter:blur(8px)}
+.stats{display:flex;justify-content:space-around;font-weight:800}
+.stat small{display:block;font-size:11px;letter-spacing:1px;opacity:.8}.stat strong{font-size:24px}
+.prompt{margin:13px 0 10px;font-weight:800;font-size:17px;min-height:25px}
+.arrows{display:flex;gap:10px;justify-content:center}
+.arrow{border:0;border-radius:16px;width:66px;height:58px;font-size:28px;font-weight:900;color:#07546c;background:#fff;box-shadow:0 5px 0 #b8e8dc;touch-action:manipulation}
+.arrow:active{transform:translateY(4px);box-shadow:0 1px 0 #b8e8dc}
+button{font:inherit;cursor:pointer}
+.mainbtn{border:0;border-radius:999px;padding:14px 35px;background:var(--yellow);color:#674d12;font-size:18px;font-weight:900;box-shadow:0 6px 0 #d7b94d;margin-top:17px}
+.mainbtn:active{transform:translateY(4px);box-shadow:0 2px 0 #d7b94d}
+.hint{font-size:12px;opacity:.83;margin-top:12px;line-height:1.7}
+.overlay{position:absolute;inset:0;background:#043d50c9;display:flex;align-items:center;justify-content:center;padding:22px;z-index:5}
+.card{width:100%;max-width:340px;border-radius:24px;background:#eafff2;color:#07546c;padding:25px 20px;box-shadow:0 12px 35px #003b4b55}
+.card h2{margin:0 0 8px;font-size:27px}.card p{line-height:1.7;margin:8px 0}
+.hidden{display:none!important}
+footer{margin-top:auto;font-size:11px;opacity:.7;padding-top:12px;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">海 之 歌 · DALIAN</div>
+  <h1>海胆舞王</h1>
+  <p class="sub">跟着节奏点一点，看看谁是海底舞王！</p>
+  <div class="stage">
+    <div class="bubble b1"></div><div class="bubble b2"></div><div class="bubble b3"></div>
+    <div class="urchin" id="urchin" aria-label="绿色海胆"><div class="spikes"></div><div class="body"></div><i class="eye left"></i><i class="eye right"></i><i class="cheek left"></i><i class="cheek right"></i><i class="mouth"></i></div>
+  </div>
+  <div class="panel">
+    <div class="stats">
+      <div class="stat"><small>得分</small><strong id="score">0</strong></div>
+      <div class="stat"><small>剩余时间</small><strong><span id="time">30</span>s</strong></div>
+      <div class="stat"><small>连击</small><strong id="combo">0</strong></div>
+    </div>
+    <div class="prompt" id="prompt">准备好和海胆一起跳舞了吗？</div>
+    <div class="arrows">
+      <button class="arrow" data-key="left" aria-label="左">←</button>
+      <button class="arrow" data-key="up" aria-label="上">↑</button>
+      <button class="arrow" data-key="down" aria-label="下">↓</button>
+      <button class="arrow" data-key="right" aria-label="右">→</button>
+    </div>
+  </div>
+  <button class="mainbtn" id="start">开始挑战</button>
+  <div class="hint">按提示点击对应方向，连续命中可获得额外分数。<br>每局 30 秒，挑战你的最高纪录！</div>
+  <footer>海之歌 · 鲜甜来自大连海洋</footer>
+</div>
+<div class="overlay" id="intro">
+  <div class="card">
+    <h2>🫧 海胆舞王登场！</h2>
+    <p>30 秒内，根据提示点击对应方向按钮。<br>点得越准，分数越高；连续命中还有连击奖励！</p>
+    <button class="mainbtn" id="begin">开始跳舞</button>
+  </div>
+</div>
+<div class="overlay hidden" id="result">
+  <div class="card">
+    <h2>🎉 舞蹈时间到！</h2>
+    <p id="resultText">你获得了 0 分！</p>
+    <p id="rankText"></p>
+    <button class="mainbtn" id="again">再跳一局</button>
+    <button class="mainbtn" id="share" style="background:#b9edcf;box-shadow:0 6px 0 #78c49b;margin-left:5px">分享成绩</button>
+  </div>
+</div>
+<script>
+const keys=['left','up','down','right'], symbols={left:'←',up:'↑',down:'↓',right:'→'};
+let score=0,combo=0,time=30,current='left',playing=false,timer=null,beat=null;
+const $=id=>document.getElementById(id);
+function next(){current=keys[Math.floor(Math.random()*keys.length)];$('prompt').textContent='跟着节奏点： '+symbols[current];}
+function update(){$('score').textContent=score;$('combo').textContent=combo;$('time').textContent=time;}
+function startGame(){
+  clearInterval(timer);clearInterval(beat);score=0;combo=0;time=30;playing=true;update();
+  $('intro').classList.add('hidden');$('result').classList.add('hidden');$('start').textContent='挑战进行中…';
+  $('urchin').classList.add('dance');next();
+  timer=setInterval(()=>{time--;update();if(time<=0)endGame()},1000);
+}
+function tap(k){
+ if(!playing)return;
+ if(k===current){combo++;score+=10+Math.min(combo,10)*2;$('prompt').textContent=combo%5===0?'太棒啦！连击 '+combo+'！':'漂亮！继续保持！';}
+ else{combo=0;$('prompt').textContent='哎呀，跟上节奏哦！';}
+ update();$('urchin').style.transform='scale(1.08)';setTimeout(()=>$('urchin').style.transform='',100);next();
+}
+function endGame(){
+ playing=false;clearInterval(timer);$('urchin').classList.remove('dance');$('start').textContent='再玩一次';
+ let rank=score>=500?'海底舞王 🏆':score>=300?'节奏达人 🥇':score>=150?'快乐舞者 🥈':'海洋新星 🫧';
+ $('resultText').textContent='本局得分：'+score+' 分';$('rankText').textContent='称号：'+rank;
+ $('result').classList.remove('hidden');
+}
+document.querySelectorAll('.arrow').forEach(b=>b.addEventListener('click',()=>tap(b.dataset.key)));
+document.addEventListener('keydown',e=>{const map={ArrowLeft:'left',ArrowUp:'up',ArrowDown:'down',ArrowRight:'right'};if(map[e.key])tap(map[e.key]);});
+$('start').addEventListener('click',startGame);$('begin').addEventListener('click',startGame);$('again').addEventListener('click',startGame);
+$('share').addEventListener('click',async()=>{
+ const msg='我在「海之歌·海胆舞王」获得了 '+score+' 分！快来挑战海底舞王！';
+ if(navigator.share){try{await navigator.share({title:'海之歌·海胆舞王',text:msg,url:location.href})}catch(e){}}
+ else if(navigator.clipboard){try{await navigator.clipboard.writeText(msg+' '+location.href);$('rankText').textContent='成绩文案已复制，可以发给朋友啦！'}catch(e){$('rankText').textContent=msg}}
+ else $('rankText').textContent=msg;
+});
+</script>
+</body>
+</html>
